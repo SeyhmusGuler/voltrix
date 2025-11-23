@@ -7,5 +7,9 @@ try:
 except ImportError:
     # Fallback version if setuptools-scm hasn't generated _version.py yet
     __version__ = "0.0.0.post0"
+from .util import print_hello
 
-__all__ = ["__version__"]
+__all__ = [
+    "__version__",
+    "print_hello",
+]

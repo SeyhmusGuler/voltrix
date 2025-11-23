@@ -23,5 +23,5 @@ def lint(session: nox.Session) -> None:
 
 @nox.session
 def typecheck(session: nox.Session) -> None:
-    session.install("mypy")
+    session.install(".", "mypy", "pandas-stubs")
     session.run("mypy", "src")
