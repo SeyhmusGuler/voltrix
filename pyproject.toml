@@ -7,7 +7,7 @@ name = "voltrix"
 dynamic = ["version"]
 description = "VOLatility maTRIX - a python library for pricing formulas and models for trading and data apps"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.12, <3.14"
 license = "MIT"
 license-files = ["LICENSE"]
 classifiers = [
@@ -23,6 +23,8 @@ dependencies = [
     "scipy",
     "pydantic",
     "typing-extensions",
+    "polars>=1.35.2",
+    "pandas>=2.3.3",
 ]
 [dependency-groups]
 dev = [
@@ -41,6 +43,17 @@ docs = [
     "mkdocs-material>=9.4.0",
     "mkdocstrings[python]>=0.23.0",
 ]
+
+ntb = [
+    "ipykernel",
+    "matplotlib",
+    "nbformat",
+    "plotly",
+    "seaborn",
+]
+
+[project.urls]
+Homepage="https://github.com/SeyhmusGuler/voltrix"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
