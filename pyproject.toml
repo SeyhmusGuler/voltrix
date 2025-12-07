@@ -1,4 +1,7 @@
 [build-system]
+# Turn in on once you figure out versioning
+# requires = ["uv_build>=0.9.15,<0.10.0"]
+# build-backend = "uv_build"
 requires = ["setuptools>=80", "setuptools-scm>=9", "wheel"]
 build-backend = "setuptools.build_meta"
 
@@ -7,7 +10,7 @@ name = "voltrix"
 dynamic = ["version"]
 description = "VOLatility maTRIX - a python library for pricing formulas and models for trading and data apps"
 readme = "README.md"
-requires-python = ">=3.12, <3.14"
+requires-python = ">=3.12"
 license = "MIT"
 license-files = ["LICENSE"]
 classifiers = [
@@ -61,7 +64,7 @@ package-dir = {"" = "src"}
 [tool.setuptools.packages.find]
 where = ["src"]
 
-[tool.setuptools-scm]
+[tool.setuptools_scm]
 # Dynamic versioning configuration
 # Version format: major.minor.patch.devN+gHASH (for development)
 # Version format: major.minor.patch (for releases)
@@ -71,11 +74,11 @@ local_scheme = "no-local-version"
 
 
 [tool.ruff]
-target-version = "py313"
+target-version = "py314"
 line-length = 120
 
 
-[too.ruff.lint]
+[tool.ruff.lint]
 select = [
     "E",  # pycodestyle errors
     "W",  # pycodestyle warnings
