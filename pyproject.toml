@@ -1,9 +1,8 @@
 [build-system]
-# Turn in on once you figure out versioning
 # requires = ["uv_build>=0.9.15,<0.10.0"]
 # build-backend = "uv_build"
-requires = ["setuptools>=80", "setuptools-scm>=9", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
 
 [project]
 name = "voltrix"
@@ -39,7 +38,9 @@ dev = [
     "pytest-cov>=4.1.0",
     "pytest-asyncio>=0.21.0",
     "hypothesis>=6.88.0",
+    "pandera[strategies,io,polars]>=0.18.0",
     "pre-commit>=3.5.0",
+    "pandas-stubs>=2.0.0",
 ]
 docs = [
     "mkdocs>=1.5.0",
@@ -58,19 +59,14 @@ ntb = [
 [project.urls]
 Homepage="https://github.com/SeyhmusGuler/voltrix"
 
-[tool.setuptools]
-package-dir = {"" = "src"}
+[tool.hatch.version]
+source = "vcs"
 
-[tool.setuptools.packages.find]
-where = ["src"]
+[tool.hatch.build.hooks.vcs]
+version-file = "src/voltrix/_version.py"
 
-[tool.setuptools_scm]
-# Dynamic versioning configuration
-# Version format: major.minor.patch.devN+gHASH (for development)
-# Version format: major.minor.patch (for releases)
-write_to = "src/voltrix/_version.py"
-version_scheme = "post-release"
-local_scheme = "no-local-version"
+[tool.hatch.build.targets.wheel]
+packages = ["src/voltrix"]
 
 
 [tool.ruff]
