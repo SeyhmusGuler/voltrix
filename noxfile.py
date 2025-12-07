@@ -5,10 +5,9 @@ import nox
 nox.options.default_venv_backend = "uv"
 
 
-@nox.session(python=["3.12", "3.13"])
+@nox.session(python=["3.12", "3.13", "3.14"])
 def tests(session: nox.Session) -> None:
     session.install("build", "pytest", "pytest-cov")
-    # Build the project, then install the wheel to test the installed artifact
     session.run("python", "-m", "build", "--wheel", "--sdist")
     session.run("uv", "pip", "install", *glob.glob("dist/*.whl"))
     session.run("pytest", "-q")

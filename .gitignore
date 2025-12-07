@@ -121,3 +121,5 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
+# setuptools_scm
+src/voltrix/_version.py
