@@ -11,9 +11,8 @@ def tests(session: nox.Session) -> None:
         "--dev",
         "--no-default-groups",
         env={"UV_PROJECT_ENVIRONMENT": session.virtualenv.location},
-        external=True,
     )
-    session.run("pytest", "-q", external=True)
+    session.run("pytest", "-q")
 
 
 @nox.session
@@ -25,7 +24,6 @@ def lint(session: nox.Session) -> None:
         "check",
         ".",
         env={"UV_PROJECT_ENVIRONMENT": session.virtualenv.location},
-        external=True,
     )
     session.run(
         "uv",
@@ -34,7 +32,6 @@ def lint(session: nox.Session) -> None:
         "format",
         ".",
         env={"UV_PROJECT_ENVIRONMENT": session.virtualenv.location},
-        external=True,
     )
 
 
@@ -46,6 +43,5 @@ def typecheck(session: nox.Session) -> None:
         "--dev",
         "--no-default-groups",
         env={"UV_PROJECT_ENVIRONMENT": session.virtualenv.location},
-        external=True,
     )
-    session.run("uv", "run", "mypy", "src", external=True)
+    session.run("ty", "check", "src")

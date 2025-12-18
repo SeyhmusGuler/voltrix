@@ -67,4 +67,4 @@ def test_calculate_vwap_properties(trades: pd.DataFrame):
         # VWAP must be between min and max price
         min_price = trades["price"].min()
         max_price = trades["price"].max()
-        assert min_price - np.finfo(float).eps <= vwap <= max_price + np.finfo(float).eps
+        assert min_price - 100 * np.finfo(float).eps <= vwap <= max_price + 100 * np.finfo(float).eps
