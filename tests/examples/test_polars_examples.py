@@ -41,7 +41,7 @@ def test_filter_large_trades(trades: pl.DataFrame):
         # Calculate value column just for verification
         check_df = filtered.with_columns((pl.col("price") * pl.col("quantity")).alias("value"))
         min_value = check_df["value"].min()
-        assert min_value > threshold
+        assert min_value > threshold  # ty:ignore[unsupported-operator]
 
 
 @given(trades=polars_trades_dataframe())
