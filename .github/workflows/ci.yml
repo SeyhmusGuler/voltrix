@@ -21,7 +21,7 @@ on:
 jobs:
   test:
 
-    runs-on: ["self-hosted", "Deb13"]
+    # runs-on: ["self-hosted", "Deb13"]
 
     strategy:
       fail-fast: true
