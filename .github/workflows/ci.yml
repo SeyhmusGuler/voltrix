@@ -35,30 +35,30 @@ jobs:
     #     POLARS_SKIP_CPU_CHECK: "1"
 
     steps:
-    - name: Isolation diagnostic
-      run: |
-        set -euxo pipefail
-        echo "== Identity =="; id
-        echo "== Proc 1 cgroup =="; cat /proc/1/cgroup || true
-        echo "== Dockerenv =="; ls -l /.dockerenv || true
-        echo "== Workspace mount =="; mount | grep "$GITHUB_WORKSPACE" || true
-        echo "== Sentinel =="
-        if [ -f /opt/runner-sentinel ]; then
-          echo "Found prior sentinel -> persistence across jobs on this runner"
-          cat /opt/runner-sentinel || true
-        else
-          echo "Creating sentinel"
-          echo "created $(date)" | tee /opt/runner-sentinel
-        fi
+    # - name: Isolation diagnostic
+    #   run: |
+    #     set -euxo pipefail
+    #     echo "== Identity =="; id
+    #     echo "== Proc 1 cgroup =="; cat /proc/1/cgroup || true
+    #     echo "== Dockerenv =="; ls -l /.dockerenv || true
+    #     echo "== Workspace mount =="; mount | grep "$GITHUB_WORKSPACE" || true
+    #     echo "== Sentinel =="
+    #     if [ -f /opt/runner-sentinel ]; then
+    #       echo "Found prior sentinel -> persistence across jobs on this runner"
+    #       cat /opt/runner-sentinel || true
+    #     else
+    #       echo "Creating sentinel"
+    #       echo "created $(date)" | tee /opt/runner-sentinel
+    #     fi
 
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Install system dependencies
-      run: |
-        apt-get update
-        apt-get upgrade -y
-        apt-get install -y curl
+    # - name: Install system dependencies
+    #   run: |
+    #     apt-get update
+    #     apt-get upgrade -y
+    #     apt-get install -y curl
 
     - name: Install uv
       uses: astral-sh/setup-uv@v4
