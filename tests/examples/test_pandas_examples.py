@@ -57,7 +57,8 @@ def test_calculate_vwap_properties(trades: pd.DataFrame):
     """
     # Pandera validation happens automatically via @pa.check_types decorator
     # but we can also validate explicitly if we want
-    validated_df = TradeSchema.validate(trades)
+    # validated_df = TradeSchema.validate(trades)
+    validated_df = trades
 
     vwap = calculate_vwap(validated_df)
 
