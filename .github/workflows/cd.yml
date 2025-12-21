@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-test-deploy:
-    runs-on: ["self-hosted", "Deb13"]
+    # runs-on: ["self-hosted", "Deb13"]
     container:
       image: python:3.13-slim-trixie
       env:
