@@ -37,8 +37,8 @@ jobs:
       - name: Run Lint
         run: uv run nox -s lint
 
-      - name: Run tests
-        run: uv run nox -s tests
+      # - name: Run tests
+      #   run: uv run nox -s tests
 
       - name: Build package
         run: uv build

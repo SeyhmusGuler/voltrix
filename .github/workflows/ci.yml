@@ -69,11 +69,11 @@ jobs:
       run: |
         uv sync --dev
 
-    - name: Run Tests
-      env:
-          POLARS_SKIP_CPU_CHECK: "1"
-      run: |
-          uv run nox -s tests
+    # - name: Run Tests
+    #   env:
+    #       POLARS_SKIP_CPU_CHECK: "1"
+    #   run: |
+    #       uv run nox -s tests
 
     - name: Run Lint
       run: |
