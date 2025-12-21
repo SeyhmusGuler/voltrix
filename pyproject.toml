@@ -9,7 +9,7 @@ name = "voltrix"
 dynamic = ["version"]
 description = "VOLatility maTRIX - a python library for pricing formulas and models for trading and data apps"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.13"
 license = "MIT"
 license-files = ["LICENSE"]
 classifiers = [
