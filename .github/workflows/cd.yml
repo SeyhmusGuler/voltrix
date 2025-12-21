@@ -9,10 +9,11 @@ on:
 jobs:
   build-test-deploy:
     # runs-on: ["self-hosted", "Deb13"]
-    container:
-      image: python:3.13-slim-trixie
-      env:
-        POLARS_SKIP_CPU_CHECK: "1"
+    runs-on: ubuntu-latest
+    # container:
+    #   image: python:3.13-slim-trixie
+    #   env:
+    #     POLARS_SKIP_CPU_CHECK: "1"
     
     steps:
       - name: Checkout code

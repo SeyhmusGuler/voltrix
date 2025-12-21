@@ -22,16 +22,17 @@ jobs:
   test:
 
     # runs-on: ["self-hosted", "Deb13"]
+    runs-on: ubuntu-latest
 
     strategy:
       fail-fast: true
       matrix:
         python-version: ["3.13"]
 
-    container:
-      image: python:${{ matrix.python-version }}-slim-trixie
-      env:
-        POLARS_SKIP_CPU_CHECK: "1"
+    # container:
+    #   image: python:${{ matrix.python-version }}-slim-trixie
+    #   env:
+    #     POLARS_SKIP_CPU_CHECK: "1"
 
     steps:
     - name: Isolation diagnostic
