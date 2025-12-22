@@ -1,4 +1,5 @@
 """Test basic package functionality."""
+import os
 
 import voltrix
 
@@ -30,3 +31,8 @@ def test_package_is_installed() -> None:
     # This will raise PackageNotFoundError if voltrix is not installed
     version = importlib.metadata.version("voltrix")
     assert version == voltrix.__version__
+
+
+def test_hypothesis_profile(hypothesis_settings) -> None:
+    """Test that the hypothesis profile is set correctly."""
+    assert os.getenv("HYPOTHESIS_PROFILE_NAME", "dev") == hypothesis_settings.get_current_profile_name()
